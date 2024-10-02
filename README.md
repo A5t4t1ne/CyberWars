@@ -1,4 +1,4 @@
-# Secure Project
+# Cyber Wars
 
 This repo is meant to contain everything CTF-environment-related.
 
