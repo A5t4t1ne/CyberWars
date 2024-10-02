@@ -12,12 +12,12 @@ Everything needed to create the CTF environment is inside the docker containers.
 - Docker
 - Docker-compose
 
-### Docker environment
+### Installation
 
 download the repo and start the environment:
 
 ```
-https://github.com/Jave01/secproj.git
+git clone https://github.com/Jave01/secproj.git
 cd secproj/docker_stuff
 docker-compose up -d --build
 ```
