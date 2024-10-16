@@ -4,22 +4,45 @@
 
 {% block content %}
 <div class="container mt-4">
-	<h1>Welcome to My Flask App</h1>
-	<p>This is a sample template using Bootstrap 5.</p>
+	<h1>Theme Park Ultra</h1>
+	<h5 class="my-4">No matter how old, no matter what preferences, we're sure you will remember our park in one way or another.</h5>
 
-	<div class="row">
-		<div class="col-md-4 mb-3">
-			<img src="{{ url_for('static', filename='img/roller-coaster1.jpg') }}" class="img-fluid rounded"
-				alt="Sample Image 1">
-		</div>
-		<div class="col-md-4 mb-3">
-			<img src="{{ url_for('static', filename='img/roller-coaster1.jpg') }}" class="img-fluid rounded"
-				alt="Sample Image 2">
-		</div>
-		<div class="col-md-4 mb-3">
-			<img src="{{ url_for('static', filename='img/roller-coaster1.jpg') }}" class="img-fluid rounded"
-				alt="Sample Image 3">
-		</div>
+	<div class="row align-items-center mb-4">
+	    <div class="col-md-6 mb-3">
+	        <img src="{{ url_for('static', filename='img/rollercoaster1.jpg') }}" class="img-fluid rounded" alt="rollercoaster1">
+	    </div>
+	    <div class="col-md-6 mb-3">
+	        <h3>Adrenaline?</h3>
+	        <p class="fs-4">Have a (usually near) death experience on our rides</p>
+	    </div>
 	</div>
+	<div class="row align-items-center mb-4">
+	    <div class="col-md-6 mb-3 order-md-2">
+	        <img src="{{ url_for('static', filename='img/twilight_rollercoaster.jpg') }}" class="img-fluid rounded" alt="twilight rollercoaster">
+	    </div>
+	    <div class="col-md-6 mb-3 order-md-1 text-end">
+	        <h3>Beautiful view?</h3>
+	        <p class="fs-4">A sunset is still the best when there's the smell of lube oil in your nose</p>
+	    </div>
+	</div>
+	<div class="row align-items-center mb-4">
+	    <div class="col-md-6 mb-3">
+	        <img src="{{ url_for('static', filename='img/ferris_wheel.jpg') }}" class="img-fluid rounded" alt="ferris wheel">
+	    </div>
+	    <div class="col-md-6 mb-3">
+	        <h3>Nightlife?</h3>
+	        <p class="fs-4">Get drunk and overlook the disregard for all food regulations.</p>
+	    </div>
+	</div>
+	<div class="row align-items-center mb-4">
+	    <div class="col-md-6 mb-3 order-md-2">
+	        <img src="{{ url_for('static', filename='img/caroussel_swing.jpg') }}" class="img-fluid rounded" alt="caroussel swing">
+	    </div>
+	    <div class="col-md-6 mb-3 order-md-1 text-end">
+	        <h3>Release your inner child?</h3>
+	        <p class="fs-4">Yeah you can do that at home too.</p>
+	    </div>
+	</div>
+
 </div>
 {% endblock %}

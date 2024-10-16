@@ -1,27 +1,11 @@
 services:
-  # nginx:
-  #   container_name: nginx
-  #   build: ./nginx/
-  #   ports:
-  #     - 80:80
-  #   volumes:
-  #       - ./web-server/src/:/var/www/html/
-
-  # flask:
-  #   container_name: flask
-  #   build: ./web-server/
-  #   expose:
-  #     - 9000
-  #   volumes:
-  #     - ./web-server/src/:/var/www/html/
-
-  # ssh:
-  #   container_name: ssh-user-space
-  #   build: ./ssh/
-  #   ports:
-  #     - 22:22
-  #   volumes:
-  #     - /var/run/docker.sock:/tmp/mimimi/docker.sock
+  ssh:
+    container_name: ssh-user-space
+    build: ./ssh/
+    ports:
+      - 22:22
+    volumes:
+      - /var/run/docker.sock:/tmp/mimimi/docker.sock
 
   flask_app:
     build: ./web-server/

@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 	<title>{% block title %}{% endblock %}</title>
 	<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
 	<style>
@@ -22,11 +23,11 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
+				<div class="navbar-nav mx-auto">
 					<a class="nav-link active" aria-current="page" href="/">Home</a>
-					<a class="nav-link" href="#">Locations</a>
-					<a class="nav-link" href="#">Check rides</a>
-					<a class="nav-link" href="/review">Review</a>
+					<a class="nav-link active" href="">Locations</a>
+					<a class="nav-link active" href="">Check rides</a>
+					<a class="nav-link active" href="/review">Review</a>
 				</div>
 			</div>
 		</div>
@@ -36,7 +37,7 @@
 		{% block content %}{% endblock %}
 	</div>
 
-	<script src"bootstrap-local/js/bootstrap.js"></script>
+	<script src="static/js/bootstrap.js"></script>
 </body>
 
 </html>
