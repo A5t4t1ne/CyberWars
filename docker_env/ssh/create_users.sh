@@ -5,7 +5,10 @@ home_rights=(
     750 # john - normal user
 )
 
-users=(bob john)
+users=(
+	bob 
+	john
+)
 passwds=(
     bdkOW4LgTXr1dGoYI9DC7J9Cr # bob
     Y6gDTAm8LPO17zEeV048B # john
@@ -18,17 +21,7 @@ if [[ $1 == "rights_only" ]]; then
 		chmod "${home_rights[$i]}" /home/"${users[$i]}"
 	done
 
-	# echo $(getent passwd EGO)
-	# echo $(getent group celestials)
-
-	# chown EGO:celestials /home/Celestials
-	# chmod 770 /home/Celestials
-	# echo "Ownership changed for Celestials"
-
-	# mkdir -p /var/run/docker
-	# chown root:docker /var/run/docker
-	# chmod 770 /var/run/docker
-
+		
 	echo "rights only changed" 
 	exit
 fi
@@ -47,19 +40,14 @@ for i in "${!users[@]}"; do
     echo "${users[$i]}:${passwds[$i]}" | chpasswd
 done
 
-# groupadd celestials
-# usermod -aG celestials EGO
-# usermod -aG celestials Starlord
-# echo "Group celestials created and Starlord and EGO added to it"
 
-# chown root:celestials /home/Celestials
-# chmod 770 /home/Celestials
-# echo "Ownership changed for EGO and /home"
+# Make hosts file exploitable
+groupadd netw_admins
+usermod -aG netw_admins john
+chown "root:netw_admins" /etc/hosts
+chown root:netw_admins /etc/hosts
+chmod 664 /etc/hosts
 
-# usermod -aG sudo EGO
-
-# yes I know it's ugly. Idc
-# usermod -aG Rocket Gamora
 
 mkdir -p /var/run/docker
 chown root:docker /var/run/docker

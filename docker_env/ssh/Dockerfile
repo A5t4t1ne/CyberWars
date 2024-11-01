@@ -30,21 +30,15 @@ COPY sshd_config /etc/ssh/sshd_config
 RUN mkdir /var/run/sshd
 
 # run user-creation and home-directory management script
+COPY hosts /etc/hosts
 COPY create_users.sh create_users.sh
 COPY initial_home_contents /home
 RUN chmod +x create_users.sh && ./create_users.sh 
 RUN rm create_users.sh
 
+
 # Add required files
 COPY superSecret.txt /tmp/superSecret.txt
-
-
-# Groot to Drax
-# RUN mkdir -p /home/common_playground
-# RUN chmod 1777 /home/common_playground
-# RUN chown Groot:Groot /home/common_playground/groot_is_learning.py
-# RUN chmod 764 /home/common_playground/groot_is_learning.py
-# COPY ./sudoers /etc/sudoers
 
 # cronjob
 COPY get_to_root_cron.txt /etc/cron.d/getHarmlessFile
@@ -55,8 +49,6 @@ RUN crontab /etc/cron.d/getHarmlessFile
 # root settings
 RUN echo "1_4m_th3_r00t_0f_4ll_3v1l" > /root/flag.txt
 RUN echo "root:very_long_passwd_lol_4321"  | chpasswd
-RUN mkdir /tmp/mimimi
-RUN chmod 750 /tmp/mimimi
 # RUN echo 'root:root' | chpasswd
 
 EXPOSE 22
