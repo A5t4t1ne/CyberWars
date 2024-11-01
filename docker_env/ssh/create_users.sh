@@ -1,22 +1,14 @@
 #!/bin/bash
 
 home_rights=(
-    750 # Groot
-    750 # Drax
-    750 # Rocket
-    750 # Gamora
-    750 # Starlord
-    750 # EGO
+    750 # bob - foothold user
+    750 # john - normal user
 )
 
-users=(Groot Drax Rocket Gamora Starlord EGO)
+users=(bob john)
 passwds=(
-    pneumonoultramicroscopicsilicovolcanoconiosis # Groot
-    I_4m_7h3_gr34t3st_0f_7h3m_4ll # Drax
-    1_4m_7h3_b357_p1l07 # Rocket
-    1_4m_4_n0n-d4nc3r_0k? # Gamora
-    Y0u_m1gh7_kn0w_m3_45_Starlord # Star-Lord
-    7h3_un1v3rs3_n33d5_t0_b3_m3 # EGO
+    bdkOW4LgTXr1dGoYI9DC7J9Cr # bob
+    Y6gDTAm8LPO17zEeV048B # john
 )
 
 
@@ -26,16 +18,16 @@ if [[ $1 == "rights_only" ]]; then
 		chmod "${home_rights[$i]}" /home/"${users[$i]}"
 	done
 
-	echo $(getent passwd EGO)
-	echo $(getent group celestials)
+	# echo $(getent passwd EGO)
+	# echo $(getent group celestials)
 
-	chown EGO:celestials /home/Celestials
-	chmod 770 /home/Celestials
-	echo "Ownership changed for Celestials"
+	# chown EGO:celestials /home/Celestials
+	# chmod 770 /home/Celestials
+	# echo "Ownership changed for Celestials"
 
-	mkdir -p /var/run/docker
-	chown root:docker /var/run/docker
-	chmod 770 /var/run/docker
+	# mkdir -p /var/run/docker
+	# chown root:docker /var/run/docker
+	# chmod 770 /var/run/docker
 
 	echo "rights only changed" 
 	exit
@@ -55,19 +47,19 @@ for i in "${!users[@]}"; do
     echo "${users[$i]}:${passwds[$i]}" | chpasswd
 done
 
-groupadd celestials
-usermod -aG celestials EGO
-usermod -aG celestials Starlord
-echo "Group celestials created and Starlord and EGO added to it"
+# groupadd celestials
+# usermod -aG celestials EGO
+# usermod -aG celestials Starlord
+# echo "Group celestials created and Starlord and EGO added to it"
 
-chown root:celestials /home/Celestials
-chmod 770 /home/Celestials
-echo "Ownership changed for EGO and /home"
+# chown root:celestials /home/Celestials
+# chmod 770 /home/Celestials
+# echo "Ownership changed for EGO and /home"
 
-usermod -aG sudo EGO
+# usermod -aG sudo EGO
 
 # yes I know it's ugly. Idc
-usermod -aG Rocket Gamora
+# usermod -aG Rocket Gamora
 
 mkdir -p /var/run/docker
 chown root:docker /var/run/docker

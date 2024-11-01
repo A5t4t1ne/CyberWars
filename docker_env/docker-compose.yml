@@ -6,11 +6,29 @@ services:
       - 22:22
     volumes:
       - /var/run/docker.sock:/tmp/mimimi/docker.sock
+    extra_hosts:
+      - "cyber2.awesome:10.0.3.12"
+    networks:
+      isolated_nat_network:
+        ipv4_address: 10.0.3.10
 
   flask_app:
     build: ./web-server/
     ports:
-      - "5000:5000" 
+      - "5000:5000"
+    networks:
+      isolated_nat_network:
+        ipv4_address: 10.0.3.11
+
+  apache_server:
+    build: ./http
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./http/public-html:/usr/local/apache2/htdocs
+    networks:
+      isolated_nat_network:
+        ipv4_address: 10.0.3.12
 
   nginx:
     image: nginx:latest
@@ -20,3 +38,10 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf # Mount the Nginx
     depends_on:
       - flask_app # Ensure that Flask app starts before Nginx
+    networks:
+      isolated_nat_network:
+        ipv4_address: 10.0.3.13
+
+networks:
+  isolated_nat_network:
+    external: true

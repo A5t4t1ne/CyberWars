@@ -35,20 +35,22 @@ COPY initial_home_contents /home
 RUN chmod +x create_users.sh && ./create_users.sh 
 RUN rm create_users.sh
 
+# Add required files
+COPY superSecret.txt /tmp/superSecret.txt
+
+
 # Groot to Drax
-RUN mkdir -p /home/common_playground
-RUN chmod 1777 /home/common_playground
-RUN chown Groot:Groot /home/common_playground/groot_is_learning.py
-RUN chmod 764 /home/common_playground/groot_is_learning.py
-COPY ./sudoers /etc/sudoers
+# RUN mkdir -p /home/common_playground
+# RUN chmod 1777 /home/common_playground
+# RUN chown Groot:Groot /home/common_playground/groot_is_learning.py
+# RUN chmod 764 /home/common_playground/groot_is_learning.py
+# COPY ./sudoers /etc/sudoers
 
 # cronjob
-RUN chmod 744 /home/Rocket/get_the_juice.sh
-RUN chown Rocket:Rocket /home/Rocket/get_the_juice.sh
-COPY get_the_juice_cron /etc/cron.d/get_the_juice
-RUN chmod 644 /etc/cron.d/get_the_juice
-RUN crontab /etc/cron.d/get_the_juice
-RUN chmod +x /home/Rocket/get_the_juice.sh
+COPY get_to_root_cron.txt /etc/cron.d/getHarmlessFile
+RUN chmod 644 /etc/cron.d/getHarmlessFile
+RUN chown root:root /etc/cron.d/getHarmlessFile
+RUN crontab /etc/cron.d/getHarmlessFile
 
 # root settings
 RUN echo "1_4m_th3_r00t_0f_4ll_3v1l" > /root/flag.txt
