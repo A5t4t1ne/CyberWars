@@ -7,7 +7,7 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/mimimi/docker.sock
     extra_hosts:
-      - "cyber2.awesome:10.0.3.12"
+      - "cyberwars.awesome:10.0.3.12"
     networks:
       isolated_nat_network:
         ipv4_address: 10.0.3.10
