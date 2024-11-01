@@ -108,8 +108,6 @@ root ALL=(ALL:ALL) ALL
 %sudo ALL=(ALL:ALL) ALL
 Defaults timestamp_timeout=15
 
-Groot ALL=(Drax) NOPASSWD: /usr/bin/python3 groot_is_learning.py
-
 ## Same thing without a password
 # %wheel ALL=(ALL:ALL) NOPASSWD: ALL
 

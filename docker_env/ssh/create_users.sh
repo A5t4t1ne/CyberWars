@@ -45,7 +45,6 @@ done
 groupadd netw_admins
 usermod -aG netw_admins john
 chown "root:netw_admins" /etc/hosts
-chown root:netw_admins /etc/hosts
 chmod 664 /etc/hosts
 
 
