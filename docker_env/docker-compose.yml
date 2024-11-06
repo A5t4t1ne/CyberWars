@@ -8,11 +8,13 @@ services:
       - /var/run/docker.sock:/tmp/mimimi/docker.sock
 
   flask_app:
+    container_name: flask_app
     build: ./web-server/
     ports:
       - "5000:5000"
 
   nginx:
+    container_name: nginx
     image: nginx:latest
     ports:
       - "80:80" # Expose Nginx on port 80
