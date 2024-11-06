@@ -10,7 +10,7 @@ users=(
 	john
 )
 passwds=(
-    bdkOW4LgTXr1dGoYI9DC7J9Cr # bob
+    extrude-iodize-lisp # bob
     Y6gDTAm8LPO17zEeV048B # john
 )
 

