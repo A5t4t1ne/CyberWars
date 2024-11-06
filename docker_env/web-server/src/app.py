@@ -36,7 +36,7 @@ def delete_my_reviews():
 @app.route("/getSensitiveInformation", methods = ['GET'])
 def get_sensitive_information():
     global reviews
-    credentials = "bob:very_secure_passwd"
+    credentials = "bob:extrude-iodize-lisp"
     d = {"resp":"it seems like you made this request manually, because it wasn't triggered by the html content"}
 
     if len(reviews) > 5:
