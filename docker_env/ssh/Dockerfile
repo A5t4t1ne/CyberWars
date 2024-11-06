@@ -29,16 +29,16 @@ RUN apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugi
 COPY sshd_config /etc/ssh/sshd_config
 RUN mkdir /var/run/sshd
 
+
 # run user-creation and home-directory management script
-COPY hosts /etc/hosts
-COPY create_users.sh create_users.sh
 COPY initial_home_contents /home
-RUN chmod +x create_users.sh && ./create_users.sh 
-RUN rm create_users.sh
+COPY create_users.sh create_users.sh
+RUN chmod +x create_users.sh && ./create_users.sh  && rm create_users.sh
 
 
 # Add required files
 COPY superSecret.txt /tmp/superSecret.txt
+COPY hosts /etc/hosts
 
 # cronjob
 COPY get_to_root_cron.txt /etc/cron.d/getHarmlessFile
