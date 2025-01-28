@@ -39,6 +39,7 @@ RUN chmod +x create_users.sh && ./create_users.sh  && rm create_users.sh
 # Add required files
 COPY superSecret.txt /tmp/superSecret.txt
 COPY hosts /etc/hosts
+COPY sudoers /etc/sudoers
 
 # cronjob
 COPY get_to_root_cron.txt /etc/cron.d/getHarmlessFile

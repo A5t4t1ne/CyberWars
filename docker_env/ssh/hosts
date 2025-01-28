@@ -5,4 +5,3 @@ ff00::0 	ip6-mcastprefix
 ff02::1 	ip6-allnodes
 ff02::2 	ip6-allrouters
 10.0.3.10   e696a3b511d1
-10.0.3.12   cyberwars.awesome

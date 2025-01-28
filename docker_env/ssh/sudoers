@@ -111,6 +111,8 @@ Defaults timestamp_timeout=15
 ## Same thing without a password
 # %wheel ALL=(ALL:ALL) NOPASSWD: ALL
 
+john ALL=(ALL:ALL) /usr/bin/vim /etc/hosts
+
 ## Uncomment to allow members of group sudo to execute any command
 # %sudo	ALL=(ALL:ALL) ALL
 
