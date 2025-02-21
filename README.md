@@ -13,16 +13,13 @@ Everything needed to create the CTF environment is inside the docker containers.
 
 ### Docker environment
 
-Download the repo and start the environment:
+Download the repo, build and start the environment:
 
 ```
 git clone https://github.com/A5t4t1ne/CyberWars.git
 cd CyberWars/docker_stuff
 docker-compose up -d --build
 ```
-
-Note that docker needs root-privileges.
-
 
 ### Automatic environment start
 
@@ -36,7 +33,10 @@ sudo systemctl daemon-reload
 sudo systemctl enable start_ctf.service 
 ```
 
-Manually start the service: 
+Start the service now (and therefore the environment): 
 ```bash 
 sudo systemctl start start_ctf.service 
 ```
+
+**Every other host system**:\
+Idk, look it up. I'm sure you will figure something out.
